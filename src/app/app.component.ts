@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountsService } from './accounts.service';
+import { CounterService } from './counter.service';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,17 @@ export class AppComponent implements OnInit {
 
   accounts = [];
 
-  constructor(private accountsService: AccountsService) {}
+  activeusers = [];
+  inactiveusers = [];
+
+  constructor(
+    private accountsService: AccountsService,
+    private counterService: CounterService
+    ) {}
 
   ngOnInit(): void {
     this.accounts = this.accountsService.getAccounts();
+    this.activeusers = this.counterService.getActiveUsers();
+    this.inactiveusers = this.counterService.getInactiveUsers();
   }
 }

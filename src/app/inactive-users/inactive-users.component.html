@@ -1,0 +1,20 @@
+<h3>Inactive User:</h3>
+<ul>
+  <li *ngFor="let user of inactiveusers">
+    <div class="row">
+      <div class="col-xs-10">
+        <div class="row">
+          <div class="col-xs-5">
+            <p>{{user.name}}</p>
+          </div>
+          <div class="col-xs-5">
+            <p>{{user.status}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <button class="btn btn-primary" (click)="toActive(user.name)">To Active</button>
+      </div>
+    </div>
+  </li>
+</ul>
